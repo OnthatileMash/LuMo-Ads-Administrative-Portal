@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuMo Ads — Administrative Portal</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="brand-mark">
+          <span class="dot red"></span>
+          <span class="dot dark"></span>
+        </div>
+        <div class="brand-text">
+          <h1>LUMO <span>ADS</span></h1>
+          <p class="tagline">ADMINISTRATIVE PORTAL</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#overview" class="nav-item active" data-tab="overview">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Overview
+        </a>
+        <a href="#hotspots" class="nav-item" data-tab="hotspots">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          Hotspot Sites
+        </a>
+        <a href="#campaigns" class="nav-item" data-tab="campaigns">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Ad Approvals
+        </a>
+        <a href="#leads" class="nav-item" data-tab="leads">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Leads & POPIA Log
+        </a>
+        <a href="#system" class="nav-item" data-tab="system">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          System Config
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="avatar">ADMIN</div>
+          <div class="details">
+            <span class="name">LuMo Operations</span>
+            <span class="role">System Administrator</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header Bar -->
+      <header class="top-bar">
+        <div class="header-search">
+          <input type="text" id="global-search" placeholder="Search hotspots, MACs, phone numbers...">
+        </div>
+        <div class="header-actions">
+          <span class="status-indicator online">Backend API: Connected</span>
+          <button class="btn btn-secondary" id="btn-refresh">Refresh Data</button>
+          <button class="btn btn-primary" id="btn-export">Export POPIA Audit Log</button>
+        </div>
+      </header>
+
+      <div class="content-body">
+        <!-- Overview Tab -->
+        <section id="tab-overview" class="tab-pane active">
+          <div class="page-title">
+            <h2>System Overview</h2>
+            <p>Real-time telemetry across captive portal deployments and ad campaigns.</p>
+          </div>
+
+          <!-- Metric Cards -->
+          <div class="metrics-grid">
+            <div class="card metric-card">
+              <span class="label">Active Hotspots</span>
+              <div class="value-group">
+                <span class="value" id="stat-hotspots">1</span>
+                <span class="badge badge-success">MikroTik Router Mode</span>
+              </div>
+              <span class="subtext">Site IP: 192.168.0.250</span>
+            </div>
+
+            <div class="card metric-card">
+              <span class="label">Total Captured Leads</span>
+              <div class="value-group">
+                <span class="value" id="stat-leads">0</span>
+                <span class="badge badge-neutral">leads.jsonl</span>
+              </div>
+              <span class="subtext">Registered phone/ID records</span>
+            </div>
+
+            <div class="card metric-card">
+              <span class="label">Ad Impressions Completed</span>
+              <div class="value-group">
+                <span class="value" id="stat-impressions">0</span>
+                <span class="badge badge-accent">25s Milestone</span>
+              </div>
+              <span class="subtext">Logged in ad-events.jsonl</span>
+            </div>
+
+            <div class="card metric-card">
+              <span class="label">POPIA Consent Rate</span>
+              <div class="value-group">
+                <span class="value" id="stat-consent">100%</span>
+                <span class="badge badge-success">Compliant</span>
+              </div>
+              <span class="subtext">Timestamped consent logs</span>
+            </div>
+          </div>
+
+          <!-- Hotspots & Recent Activity Row -->
+          <div class="dashboard-row">
+            <div class="card flex-2">
+              <div class="card-header">
+                <h3>Live Hotspot Fleet</h3>
+                <span class="badge badge-neutral">1 Site Active</span>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Site Name</th>
+                      <th>Gateway IP</th>
+                      <th>Backend Node</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-hotspots-summary">
+                    <tr>
+                      <td><strong>Taxi Rank Alpha (Main)</strong></td>
+                      <td>192.168.0.250</td>
+                      <td>192.168.0.240:3000</td>
+                      <td><span class="badge badge-success">ONLINE</span></td>
+                      <td><button class="btn btn-sm btn-secondary">Ping Gateway</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card flex-1">
+              <div class="card-header">
+                <h3>System Status</h3>
+              </div>
+              <div class="system-health">
+                <div class="health-item">
+                  <span class="health-label">Node.js API Server</span>
+                  <span class="health-status green">Running (Port 3000)</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">Walled Garden Firewall</span>
+                  <span class="health-status green">Accepting 192.168.0.240</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">Ad Creative File</span>
+                  <span class="health-status amber" id="ad-creative-status">sample-ad.mp4 (Fallback Active)</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">POPIA Storage</span>
+                  <span class="health-status green">JSONL File System</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Leads & POPIA Audit Log Tab -->
+        <section id="tab-leads" class="tab-pane">
+          <div class="page-title">
+            <h2>Leads & POPIA Privacy Audit Log</h2>
+            <p>Immutable user registration records and consent timestamps captured prior to network grant.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Captured User Registrations (`data/leads.jsonl`)</h3>
+              <div class="table-actions">
+                <input type="text" id="filter-leads" placeholder="Filter by Phone, MAC, or Date...">
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>User Contact / ID</th>
+                    <th>Device MAC Address</th>
+                    <th>Client IP</th>
+                    <th>POPIA Consent</th>
+                  </tr>
+                </thead>
+                <tbody id="table-leads-body">
+                  <tr>
+                    <td colspan="5" class="empty-text">Loading registered leads from API...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Campaign Approvals Tab -->
+        <section id="tab-campaigns" class="tab-pane">
+          <div class="page-title">
+            <h2>Ad Campaign Approvals</h2>
+            <p>Review and approve advertiser video creatives before distribution to taxi rank hotspots.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Active Video Campaigns</h3>
+              <button class="btn btn-sm btn-primary">+ Upload New Creative</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Campaign ID</th>
+                    <th>Advertiser</th>
+                    <th>Creative File</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>DEMO_AD_01</strong></td>
+                    <td>LuMo House Campaign</td>
+                    <td>sample-ad.mp4</td>
+                    <td>25 Seconds</td>
+                    <td><span class="badge badge-success">ACTIVE</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-secondary">Preview Video</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
